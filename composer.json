@@ -1,6 +1,12 @@
 {
     "name": "bnf/phpstan-psr-container",
     "description": "PSR-11 container dynamic return type extension for PHPStan",
+    "keywords": [
+        "psr-11",
+        "service-provider",
+        "phpstan",
+        "static"
+    ],
     "authors": [
         {
             "name": "Benjamin Franzke",
