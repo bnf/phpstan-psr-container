@@ -1,6 +1,7 @@
 {
     "name": "bnf/phpstan-psr-container",
-    "description": "PSR-11 container dynamic return type extension for PHPStan",
+    "description": "PHPStan dynamic return type extension for PSR-11 ContainerInterface",
+    "type": "phpstan-extension",
     "keywords": [
         "psr-11",
         "service-provider",
@@ -16,6 +17,13 @@
         }
     ],
     "license": "GPL-2.0+",
+    "extra": {
+        "phpstan": {
+            "includes": [
+                "extension.neon"
+            ]
+        }
+    },
     "require": {
         "php": "^7.0",
         "psr/container": "^1.0",
