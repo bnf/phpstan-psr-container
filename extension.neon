@@ -1,0 +1,6 @@
+services:
+    -
+        class: Bnf\PhpstanPsrContainer\Type\ContainerDynamicReturnTypeExtension
+        tags:
+            - phpstan.broker.dynamicMethodReturnTypeExtension
+

@@ -1,0 +1,23 @@
+{
+    "name": "bnf/phpstan-psr-container",
+    "description": "PSR-11 container dynamic return type extension for PHPStan",
+    "authors": [
+        {
+            "name": "Benjamin Franzke",
+            "email": "benjaminfranzke@gmail.com",
+            "role": "Developer",
+            "homepage": "https://bnfr.net"
+        }
+    ],
+    "license": "GPL-2.0+",
+    "require": {
+        "php": "^7.0",
+        "psr/container": "^1.0",
+        "phpstan/phpstan": "^0.11"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bnf\\PhpstanPsrContainer\\": "src/"
+        }
+    }
+}
