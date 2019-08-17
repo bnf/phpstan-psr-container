@@ -1,18 +1,17 @@
 <?php
 declare(strict_types=1);
 
-namespace Bnf\PhpstanPsrContainer\Type;
-
-use PhpParser\Node\Expr\ClassConstFetch;
-use PhpParser\Node\Expr\MethodCall;
+namespace Bnf\PhpstanPsrContainer;
 
 use PHPStan\Analyser\Scope;
+use PHPStan\Reflection\MethodReflection;
+use PHPStan\Reflection\ParametersAcceptorSelector;
 use PHPStan\Type\Constant\ConstantStringType;
 use PHPStan\Type\DynamicMethodReturnTypeExtension;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
-use PHPStan\Reflection\MethodReflection;
-use PHPStan\Reflection\ParametersAcceptorSelector;
+use PhpParser\Node\Expr\ClassConstFetch;
+use PhpParser\Node\Expr\MethodCall;
 use Psr\Container\ContainerInterface;
 
 class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExtension
