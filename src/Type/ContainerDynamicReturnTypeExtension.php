@@ -5,7 +5,9 @@ namespace Bnf\PhpstanPsrContainer\Type;
 
 use PhpParser\Node\Expr\ClassConstFetch;
 use PhpParser\Node\Expr\MethodCall;
+
 use PHPStan\Analyser\Scope;
+use PHPStan\Type\Constant\ConstantStringType;
 use PHPStan\Type\DynamicMethodReturnTypeExtension;
 use PHPStan\Type\ObjectType;
 use PHPStan\Type\Type;
@@ -31,11 +33,16 @@ class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExte
             return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
         }
         $arg = $methodCall->args[0]->value;
-
-        if ($arg instanceof \PhpParser\Node\Expr\ClassConstFetch) {
-            return new ObjectType((string)$arg->class);
+        // Care only for ::class parameters, we can not guess types for random strings.
+        if (!$arg instanceof \PhpParser\Node\Expr\ClassConstFetch) {
+            return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
         }
 
-        return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
+        $argType = $scope->getType($methodCall->args[0]->value);
+        if (!$argType instanceof ConstantStringType) {
+            return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
+        }
+
+        return new ObjectType($argType->getValue());
     }
 }
