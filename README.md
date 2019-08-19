@@ -2,7 +2,9 @@
 
 ## Installation
 
-To use this extension, require it in [Composer](https://getcomposer.org/):
+To use this extension, require
+[bnf/phpstan-psr-container](https://packagist.org/packages/bnf/phpstan-psr-container)
+in [Composer](https://getcomposer.org/):
 
 ```
 composer require --dev bnf/phpstan-psr-container
