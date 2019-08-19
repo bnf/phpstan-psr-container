@@ -1,4 +1,4 @@
-# PHPStan dynamic return type extension for PSR-11 ContainerInterface",
+# PHPStan dynamic return type extension for PSR-11 ContainerInterface
 
 ## Installation
 
