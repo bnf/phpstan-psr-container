@@ -27,7 +27,7 @@
     "require": {
         "php": "^7.0",
         "psr/container": "^1.0",
-        "phpstan/phpstan": "^0.11"
+        "phpstan/phpstan": "^0.11|^0.12"
     },
     "autoload": {
         "psr-4": {
