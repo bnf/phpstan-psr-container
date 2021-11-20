@@ -28,16 +28,16 @@ class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExte
 
     public function getTypeFromMethodCall(MethodReflection $reflection, MethodCall $methodCall, Scope $scope): Type
     {
-        if (count($methodCall->args) === 0) {
+        if (count($methodCall->getArgs()) === 0) {
             return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
         }
-        $arg = $methodCall->args[0]->value;
+        $arg = $methodCall->getArgs()[0]->value;
         // Care only for ::class parameters, we can not guess types for random strings.
         if (!$arg instanceof \PhpParser\Node\Expr\ClassConstFetch) {
             return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
         }
 
-        $argType = $scope->getType($methodCall->args[0]->value);
+        $argType = $scope->getType($methodCall->getArgs()[0]->value);
         if (!$argType instanceof ConstantStringType) {
             return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
         }
