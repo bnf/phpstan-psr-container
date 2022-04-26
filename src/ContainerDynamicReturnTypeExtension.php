@@ -34,7 +34,7 @@ class ContainerDynamicReturnTypeExtension implements DynamicMethodReturnTypeExte
         }
         $arg = $args[0]->value;
         // Care only for ::class parameters, we can not guess types for random strings.
-        if (!$arg instanceof \PhpParser\Node\Expr\ClassConstFetch) {
+        if (!$arg instanceof ClassConstFetch) {
             return ParametersAcceptorSelector::selectSingle($reflection->getVariants())->getReturnType();
         }
 
