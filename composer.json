@@ -16,7 +16,7 @@
             "homepage": "https://bnfr.net"
         }
     ],
-    "license": "GPL-2.0+",
+    "license": "GPL-2.0-or-later",
     "extra": {
         "phpstan": {
             "includes": [
