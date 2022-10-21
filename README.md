@@ -10,7 +10,7 @@ in [Composer](https://getcomposer.org/):
 composer require --dev bnf/phpstan-psr-container
 ```
 
-Include extension.neon in your project's PHPStan config or use `phpstan/extension-installer`:
+Include extension.neon in your project's PHPStan config or use [`phpstan/extension-installer`](https://github.com/phpstan/extension-installer):
 
 ```
 includes:
